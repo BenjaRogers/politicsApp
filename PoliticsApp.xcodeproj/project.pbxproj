@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B50DF2852A7A7B4800D9CC65 /* PoliticsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50DF2842A7A7B4800D9CC65 /* PoliticsAppApp.swift */; };
+		B50DF2872A7A7B4800D9CC65 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50DF2862A7A7B4800D9CC65 /* ContentView.swift */; };
+		B50DF2892A7A7B4D00D9CC65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B50DF2882A7A7B4D00D9CC65 /* Assets.xcassets */; };
+		B50DF28C2A7A7B4D00D9CC65 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B50DF28B2A7A7B4D00D9CC65 /* Preview Assets.xcassets */; };
+		B50DF2962A7A7BC200D9CC65 /* ProPublicaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50DF2952A7A7BC200D9CC65 /* ProPublicaAPI.swift */; };
+		B50F24B12A803D710084DAF5 /* DateDiffCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F24B02A803D710084DAF5 /* DateDiffCalc.swift */; };
+		B50F24B32A8097F70084DAF5 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F24B22A8097F70084DAF5 /* ImageHandler.swift */; };
+		B5149F582A8114330082D8C1 /* SpecificBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5149F572A8114330082D8C1 /* SpecificBill.swift */; };
+		B5149F5A2A811E530082D8C1 /* SpecificBills.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5149F592A811E530082D8C1 /* SpecificBills.swift */; };
+		B5149F5F2A8127F10082D8C1 /* SpecificBillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5149F5E2A8127F10082D8C1 /* SpecificBillViewModel.swift */; };
+		B5149F632A81346B0082D8C1 /* SpecificBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5149F622A81346B0082D8C1 /* SpecificBillView.swift */; };
+		B5149F652A8152EF0082D8C1 /* SpecificBillVotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5149F642A8152EE0082D8C1 /* SpecificBillVotes.swift */; };
+		B5149F672A8155040082D8C1 /* SpecificBillAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5149F662A8155040082D8C1 /* SpecificBillAction.swift */; };
+		B5679EEB2A7EC81400085AC0 /* RecentBills.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5679EEA2A7EC81400085AC0 /* RecentBills.swift */; };
+		B5679EED2A7EC83500085AC0 /* RecentResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5679EEC2A7EC83500085AC0 /* RecentResults.swift */; };
+		B5679EEF2A7EC85F00085AC0 /* RecentBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5679EEE2A7EC85F00085AC0 /* RecentBill.swift */; };
+		B5679EF12A7EC88800085AC0 /* CosponsorsParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5679EF02A7EC88800085AC0 /* CosponsorsParty.swift */; };
+		B5679EF32A7EC99F00085AC0 /* BillRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5679EF22A7EC99F00085AC0 /* BillRowView.swift */; };
+		B5679EF52A7ECBD500085AC0 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5679EF42A7ECBD500085AC0 /* Errors.swift */; };
+		B5679EF72A7ED40700085AC0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5679EF62A7ED40700085AC0 /* FeedView.swift */; };
+		B5679EF92A7EDE0D00085AC0 /* RecentBillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5679EF82A7EDE0D00085AC0 /* RecentBillViewModel.swift */; };
+		B5A999412A839E3700D9A475 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B5A999402A839E3700D9A475 /* .gitignore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B50DF2812A7A7B4800D9CC65 /* PoliticsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliticsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B50DF2842A7A7B4800D9CC65 /* PoliticsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticsAppApp.swift; sourceTree = "<group>"; };
+		B50DF2862A7A7B4800D9CC65 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B50DF2882A7A7B4D00D9CC65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B50DF28B2A7A7B4D00D9CC65 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B50DF2952A7A7BC200D9CC65 /* ProPublicaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProPublicaAPI.swift; sourceTree = "<group>"; };
+		B50F24B02A803D710084DAF5 /* DateDiffCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDiffCalc.swift; sourceTree = "<group>"; };
+		B50F24B22A8097F70084DAF5 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
+		B5149F572A8114330082D8C1 /* SpecificBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificBill.swift; sourceTree = "<group>"; };
+		B5149F592A811E530082D8C1 /* SpecificBills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificBills.swift; sourceTree = "<group>"; };
+		B5149F5E2A8127F10082D8C1 /* SpecificBillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificBillViewModel.swift; sourceTree = "<group>"; };
+		B5149F622A81346B0082D8C1 /* SpecificBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificBillView.swift; sourceTree = "<group>"; };
+		B5149F642A8152EE0082D8C1 /* SpecificBillVotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificBillVotes.swift; sourceTree = "<group>"; };
+		B5149F662A8155040082D8C1 /* SpecificBillAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificBillAction.swift; sourceTree = "<group>"; };
+		B5679EEA2A7EC81400085AC0 /* RecentBills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBills.swift; sourceTree = "<group>"; };
+		B5679EEC2A7EC83500085AC0 /* RecentResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentResults.swift; sourceTree = "<group>"; };
+		B5679EEE2A7EC85F00085AC0 /* RecentBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBill.swift; sourceTree = "<group>"; };
+		B5679EF02A7EC88800085AC0 /* CosponsorsParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosponsorsParty.swift; sourceTree = "<group>"; };
+		B5679EF22A7EC99F00085AC0 /* BillRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRowView.swift; sourceTree = "<group>"; };
+		B5679EF42A7ECBD500085AC0 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		B5679EF62A7ED40700085AC0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		B5679EF82A7EDE0D00085AC0 /* RecentBillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBillViewModel.swift; sourceTree = "<group>"; };
+		B5A9993C2A839A9600D9A475 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		B5A9993F2A839D8200D9A475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B5A999402A839E3700D9A475 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B50DF27E2A7A7B4800D9CC65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B50DF2782A7A7B4800D9CC65 = {
+			isa = PBXGroup;
+			children = (
+				B50DF2832A7A7B4800D9CC65 /* PoliticsApp */,
+				B50DF2822A7A7B4800D9CC65 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B50DF2822A7A7B4800D9CC65 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B50DF2812A7A7B4800D9CC65 /* PoliticsApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B50DF2832A7A7B4800D9CC65 /* PoliticsApp */ = {
+			isa = PBXGroup;
+			children = (
+				B50DF2972A7ACC5A00D9CC65 /* Models */,
+				B50DF2942A7A7B8800D9CC65 /* ViewModels */,
+				B50DF2932A7A7B7F00D9CC65 /* Views */,
+				B50DF2922A7A7B7200D9CC65 /* DataServices */,
+				B50DF2842A7A7B4800D9CC65 /* PoliticsAppApp.swift */,
+				B50DF2862A7A7B4800D9CC65 /* ContentView.swift */,
+				B50DF2882A7A7B4D00D9CC65 /* Assets.xcassets */,
+				B50DF28A2A7A7B4D00D9CC65 /* Preview Content */,
+				B5A9993C2A839A9600D9A475 /* Config.xcconfig */,
+				B5A9993F2A839D8200D9A475 /* Info.plist */,
+				B5A999402A839E3700D9A475 /* .gitignore */,
+			);
+			path = PoliticsApp;
+			sourceTree = "<group>";
+		};
+		B50DF28A2A7A7B4D00D9CC65 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B50DF28B2A7A7B4D00D9CC65 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B50DF2922A7A7B7200D9CC65 /* DataServices */ = {
+			isa = PBXGroup;
+			children = (
+				B50DF2952A7A7BC200D9CC65 /* ProPublicaAPI.swift */,
+				B50F24B02A803D710084DAF5 /* DateDiffCalc.swift */,
+				B50F24B22A8097F70084DAF5 /* ImageHandler.swift */,
+			);
+			path = DataServices;
+			sourceTree = "<group>";
+		};
+		B50DF2932A7A7B7F00D9CC65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5679EF22A7EC99F00085AC0 /* BillRowView.swift */,
+				B5679EF62A7ED40700085AC0 /* FeedView.swift */,
+				B5149F622A81346B0082D8C1 /* SpecificBillView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B50DF2942A7A7B8800D9CC65 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B5679EF82A7EDE0D00085AC0 /* RecentBillViewModel.swift */,
+				B5149F5E2A8127F10082D8C1 /* SpecificBillViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B50DF2972A7ACC5A00D9CC65 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5149F5C2A811F230082D8C1 /* Specific */,
+				B5149F5B2A811F080082D8C1 /* Recent */,
+				B5679EF02A7EC88800085AC0 /* CosponsorsParty.swift */,
+				B5679EF42A7ECBD500085AC0 /* Errors.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B5149F5B2A811F080082D8C1 /* Recent */ = {
+			isa = PBXGroup;
+			children = (
+				B5679EEA2A7EC81400085AC0 /* RecentBills.swift */,
+				B5679EEC2A7EC83500085AC0 /* RecentResults.swift */,
+				B5679EEE2A7EC85F00085AC0 /* RecentBill.swift */,
+			);
+			path = Recent;
+			sourceTree = "<group>";
+		};
+		B5149F5C2A811F230082D8C1 /* Specific */ = {
+			isa = PBXGroup;
+			children = (
+				B5149F592A811E530082D8C1 /* SpecificBills.swift */,
+				B5149F572A8114330082D8C1 /* SpecificBill.swift */,
+				B5149F642A8152EE0082D8C1 /* SpecificBillVotes.swift */,
+				B5149F662A8155040082D8C1 /* SpecificBillAction.swift */,
+			);
+			path = Specific;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B50DF2802A7A7B4800D9CC65 /* PoliticsApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B50DF28F2A7A7B4D00D9CC65 /* Build configuration list for PBXNativeTarget "PoliticsApp" */;
+			buildPhases = (
+				B50DF27D2A7A7B4800D9CC65 /* Sources */,
+				B50DF27E2A7A7B4800D9CC65 /* Frameworks */,
+				B50DF27F2A7A7B4800D9CC65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PoliticsApp;
+			productName = PoliticsApp;
+			productReference = B50DF2812A7A7B4800D9CC65 /* PoliticsApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B50DF2792A7A7B4800D9CC65 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					B50DF2802A7A7B4800D9CC65 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = B50DF27C2A7A7B4800D9CC65 /* Build configuration list for PBXProject "PoliticsApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B50DF2782A7A7B4800D9CC65;
+			productRefGroup = B50DF2822A7A7B4800D9CC65 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B50DF2802A7A7B4800D9CC65 /* PoliticsApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B50DF27F2A7A7B4800D9CC65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B50DF28C2A7A7B4D00D9CC65 /* Preview Assets.xcassets in Resources */,
+				B5A999412A839E3700D9A475 /* .gitignore in Resources */,
+				B50DF2892A7A7B4D00D9CC65 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B50DF27D2A7A7B4800D9CC65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5149F672A8155040082D8C1 /* SpecificBillAction.swift in Sources */,
+				B5149F582A8114330082D8C1 /* SpecificBill.swift in Sources */,
+				B5679EF72A7ED40700085AC0 /* FeedView.swift in Sources */,
+				B5679EEF2A7EC85F00085AC0 /* RecentBill.swift in Sources */,
+				B50DF2872A7A7B4800D9CC65 /* ContentView.swift in Sources */,
+				B50F24B12A803D710084DAF5 /* DateDiffCalc.swift in Sources */,
+				B5679EF32A7EC99F00085AC0 /* BillRowView.swift in Sources */,
+				B50F24B32A8097F70084DAF5 /* ImageHandler.swift in Sources */,
+				B5149F5A2A811E530082D8C1 /* SpecificBills.swift in Sources */,
+				B50DF2962A7A7BC200D9CC65 /* ProPublicaAPI.swift in Sources */,
+				B5679EEB2A7EC81400085AC0 /* RecentBills.swift in Sources */,
+				B50DF2852A7A7B4800D9CC65 /* PoliticsAppApp.swift in Sources */,
+				B5149F5F2A8127F10082D8C1 /* SpecificBillViewModel.swift in Sources */,
+				B5149F652A8152EF0082D8C1 /* SpecificBillVotes.swift in Sources */,
+				B5679EED2A7EC83500085AC0 /* RecentResults.swift in Sources */,
+				B5149F632A81346B0082D8C1 /* SpecificBillView.swift in Sources */,
+				B5679EF52A7ECBD500085AC0 /* Errors.swift in Sources */,
+				B5679EF92A7EDE0D00085AC0 /* RecentBillViewModel.swift in Sources */,
+				B5679EF12A7EC88800085AC0 /* CosponsorsParty.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B50DF28D2A7A7B4D00D9CC65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B50DF28E2A7A7B4D00D9CC65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B50DF2902A7A7B4D00D9CC65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5A9993C2A839A9600D9A475 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PoliticsApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 8PPUA8X3N6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PoliticsApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BenjaRogers.PoliticsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B50DF2912A7A7B4D00D9CC65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PoliticsApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 8PPUA8X3N6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PoliticsApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BenjaRogers.PoliticsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B50DF27C2A7A7B4800D9CC65 /* Build configuration list for PBXProject "PoliticsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B50DF28D2A7A7B4D00D9CC65 /* Debug */,
+				B50DF28E2A7A7B4D00D9CC65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B50DF28F2A7A7B4D00D9CC65 /* Build configuration list for PBXNativeTarget "PoliticsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B50DF2902A7A7B4D00D9CC65 /* Debug */,
+				B50DF2912A7A7B4D00D9CC65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B50DF2792A7A7B4800D9CC65 /* Project object */;
+}
