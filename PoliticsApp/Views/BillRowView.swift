@@ -39,9 +39,18 @@ extension BillRowView {
         } label: {
             // Placeholder for actual image of bill sponsor
             HStack(alignment: .top, spacing: 12) {
-                Circle()
-                    .frame(width: 56, height: 56)
-                    .foregroundColor(Color(.systemBlue))
+                let image = ImageHandler().RequestImage(sponsor_id: bill.sponsor_id)
+                if image != nil {
+                    Image(uiImage: image!)
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: 48, height: 48)
+                } else {
+                    Circle()
+                        .frame(width: 56, height: 56)
+                        .foregroundColor(Color(.systemBlue))
+                }
                 
                 // Header with sponsor name and bill slug
                 VStack(alignment: .leading, spacing: 4) {
@@ -61,6 +70,12 @@ extension BillRowView {
                             .font(.subheadline)
                             .multilineTextAlignment(.leading)
                             .foregroundColor(.black)
+                    }
+                    Spacer()
+                    HStack {
+                        Text(bill.latest_major_action)
+                            .font(.subheadline)
+                            .multilineTextAlignment(.leading)
                     }
                 }
             }.padding()

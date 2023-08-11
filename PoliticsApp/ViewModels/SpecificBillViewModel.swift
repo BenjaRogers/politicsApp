@@ -13,9 +13,18 @@ class SpecificBillViewModel: ObservableObject {
     
     @Published var senateVoteCount: [Int] = []
     @Published var houseVoteCount: [Int] = []
+    @Published var senateVoteResult: String = ""
+    @Published var houseVoteResult: String = ""
+    @Published var senateVoteDate: String = ""
+    @Published var houseVoteDate: String = ""
+    
+    
+    @Published var houseVoteRollCall: [Position] = []
+    @Published var senateVoteRollCall: [Position] = []
     
     @Published var showSpecificBillView = false
     @Published var bill: SpecificBill?
+    
     
     init(specificResults: SpecificBills) {
         self.specificResults = specificResults
@@ -23,6 +32,8 @@ class SpecificBillViewModel: ObservableObject {
         self.bill = bills.first!
         setSenateVoteCount()
         setHouseVoteCount()
+        setSenateRollCall()
+        setHouseRollCall()
     }
     
     func nextSpecificBill(specificResults: SpecificBills) {
@@ -39,6 +50,8 @@ class SpecificBillViewModel: ObservableObject {
             if vote.chamber == "Senate" {
                 totalVotes = vote.totalYes + vote.totalNo + vote.totalNotVoting
                 self.senateVoteCount = [vote.totalYes, vote.totalNo, vote.totalNotVoting, totalVotes]
+                self.senateVoteResult = vote.result
+                self.senateVoteDate = vote.date
             }
         }
     }
@@ -50,6 +63,30 @@ class SpecificBillViewModel: ObservableObject {
             if vote.chamber == "House" {
                 totalVotes = vote.totalYes + vote.totalNo + vote.totalNotVoting
                 self.houseVoteCount = [vote.totalYes, vote.totalNo, vote.totalNotVoting, totalVotes]
+                self.houseVoteResult = vote.result
+                self.houseVoteDate = vote.date
+            }
+        }
+    }
+    
+    func setSenateRollCall() {
+        for chamberVotes in bill!.votes {
+            if chamberVotes.chamber == "Senate" {
+                let specificRollCallVote = ProPublicaAPI().fetchAPIRollCallVoteSpecific(apiUrl: chamberVotes.apiURL)!
+                if specificRollCallVote.results != nil {
+                    self.senateVoteRollCall = specificRollCallVote.results!.votes!.vote!.positions!
+                }
+            }
+        }
+    }
+    
+    func setHouseRollCall() {
+        for chamberVotes in bill!.votes {
+            if chamberVotes.chamber == "House" {
+                let specificRollCallVote = ProPublicaAPI().fetchAPIRollCallVoteSpecific(apiUrl: chamberVotes.apiURL)!
+                if specificRollCallVote.results != nil {
+                    self.houseVoteRollCall = specificRollCallVote.results!.votes!.vote!.positions!
+                }
             }
         }
     }

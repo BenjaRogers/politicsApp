@@ -105,4 +105,26 @@ class ProPublicaAPI {
         
         return specificResults
     }
+    func fetchAPIRollCallVoteSpecific(apiUrl: String) -> SpecificRollCall? {
+        let apiKey = Bundle.main.object(forInfoDictionaryKey: "apiKey") as! String
+        var specificRollCallVote: SpecificRollCall?
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        if apiKey != "" {
+            callAPIWithKey(urlString: apiUrl, apiKey: apiKey) {result in
+                switch result {
+                case .success(let jsonData):
+                    let decoder = JSONDecoder()
+                    specificRollCallVote = try! decoder.decode(SpecificRollCall.self, from:jsonData)
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+                semaphore.signal()
+            }
+        }
+        semaphore.wait()
+        
+        return specificRollCallVote
+    }
 }

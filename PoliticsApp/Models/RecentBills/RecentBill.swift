@@ -40,4 +40,15 @@ struct RecentBill: Codable, Identifiable {
     let summary_short: String
     let title: String
     let vetoed: String?
+    
+    func getImage() -> UIImage? {
+        let url = URL(string: "https://theunitedstates.io/images/congress/225x275/\(self.bill_slug).jpg")
+        let data = try? Data(contentsOf: url!)
+
+        if let imageData = data {
+            let image = UIImage(data: imageData)
+            return image
+        }
+        return UIImage()
+    }
 }

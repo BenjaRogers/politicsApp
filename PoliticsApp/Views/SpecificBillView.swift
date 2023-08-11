@@ -16,8 +16,11 @@ struct SpecificBillView: View {
             TabView {
                 summaryTab
                 latestActionsTab
-                ScrollView {
-                    Text("Its a view?")
+                if specificBillVM.houseVoteCount != [] {
+                    houseVoteDetailsTab
+                }
+                if specificBillVM.senateVoteCount != [] {
+                    senateVoteDetailsTab
                 }
             }
             .tabViewStyle(.page)
@@ -28,7 +31,7 @@ struct SpecificBillView: View {
 
 struct SpecificBillView_Previews: PreviewProvider {
     static var previews: some View {
-        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(billSlug: "sjres9")!
+        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(billSlug: "hr4004")!
         SpecificBillView(bill: specificBill.results.first!).environmentObject(SpecificBillViewModel(specificResults: specificBill))
     }
 }
@@ -62,22 +65,29 @@ extension SpecificBillView {
                         .font(.headline)
                 }
             }.padding()
-                Text("Vote Summary")
-                    .font(.system(size: 18))
-                    .fontWeight(.heavy)
-            
+            Text("Vote Summary")
+                .font(.system(size: 18))
+                .fontWeight(.heavy)
+            Text("Senate: ")
             if specificBillVM.senateVoteCount != []{
-                Text("Senate: ")
                 senateVoteGraph
             } else {
-                Text("This bill has not yet been voted on.")
+                if bill.senate_passage == nil {
+                    Text("This bill has not yet been voted on.")
+                } else {
+                    Text("Passed Senate \(bill.senate_passage!)")
+                }
             }
+            Text("House: ")
             if specificBillVM.houseVoteCount != [] {
-                    Text("House: ")
-                    houseVoteGraph
+                houseVoteGraph
                 
             } else {
-                Text("This bill has not yet been voted on.")
+                if bill.house_passage == nil {
+                    Text("This bill has not yet been voted on.")
+                } else {
+                    Text("Passed House \(bill.house_passage!)")
+                }
             }
         }
     }
@@ -126,22 +136,22 @@ extension SpecificBillView {
     // Overlay doesnt work great for votes with only a few of a certain response i.e. only 2 people are 'not voting' since the section of the barchart is so thin the number gets cut off
     private var senateVoteGraph: some View {
         return VStack(alignment: .leading) {
-                GeometryReader { gp in
-                    // chart is here
-                    HStack(spacing: 0) {
-                        Rectangle().fill(Color.green)
-                            .frame(width: CGFloat(Double(specificBillVM.senateVoteCount[0]) / Double(specificBillVM.senateVoteCount[3])) * gp.size.width).overlay{Text("\(specificBillVM.senateVoteCount[0])")}
-                        Rectangle()
-                            .fill(Color.red)
-                            .frame(width: CGFloat(Double(specificBillVM.senateVoteCount[1]) / Double(specificBillVM.senateVoteCount[3])) * gp.size.width).overlay{Text("\(specificBillVM.senateVoteCount[1])")}
-                        Rectangle()
-                            .fill(Color.yellow)
-                            .frame(width: CGFloat(Double(specificBillVM.senateVoteCount[2]) / Double(specificBillVM.senateVoteCount[3])) * gp.size.width).overlay{Text("\(specificBillVM.senateVoteCount[2])")}
-                    }
+            GeometryReader { gp in
+                // chart is here
+                HStack(spacing: 0) {
+                    Rectangle().fill(Color.green)
+                        .frame(width: CGFloat(Double(specificBillVM.senateVoteCount[0]) / Double(specificBillVM.senateVoteCount[3])) * gp.size.width).overlay{Text("\(specificBillVM.senateVoteCount[0])")}
+                    Rectangle()
+                        .fill(Color.red)
+                        .frame(width: CGFloat(Double(specificBillVM.senateVoteCount[1]) / Double(specificBillVM.senateVoteCount[3])) * gp.size.width).overlay{Text("\(specificBillVM.senateVoteCount[1])")}
+                    Rectangle()
+                        .fill(Color.yellow)
+                        .frame(width: CGFloat(Double(specificBillVM.senateVoteCount[2]) / Double(specificBillVM.senateVoteCount[3])) * gp.size.width).overlay{Text("\(specificBillVM.senateVoteCount[2])")}
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .frame(height:45)
-                .padding()
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .frame(height:45)
+            .padding()
         }
     }
     
@@ -164,5 +174,48 @@ extension SpecificBillView {
             .frame(height:45)
             .padding()
         }
+    }
+    private var houseVoteDetailsTab: some View {
+        let columns = [GridItem(.fixed(200), alignment: .leading), GridItem(.flexible()), GridItem(.flexible())]
+        return ScrollView {
+            VStack(alignment: .leading) {
+                backButton
+                Text("House Roll Call - \(specificBillVM.houseVoteResult)  \(specificBillVM.houseVoteDate)")
+                    .fontWeight(.bold)
+                    .font(.system(size: 22))
+                LazyVGrid(columns:columns, spacing: 4) {
+                    if specificBillVM.houseVoteRollCall != [] {
+                        ForEach(specificBillVM.houseVoteRollCall) {position in
+                            
+                            Text(position.name!)
+                            Text(position.party!)
+                            Text(position.vote_position!)
+                        }
+                    }
+                }
+            }
+        }.padding()
+    }
+    private var senateVoteDetailsTab: some View {
+        let columns = [GridItem(.fixed(200), alignment: .leading), GridItem(.flexible()), GridItem(.flexible())]
+        return ScrollView {
+            VStack(alignment: .leading) {
+                backButton
+                Text("Senate Roll Call - \(specificBillVM.senateVoteResult)  \(specificBillVM.senateVoteDate)")
+                    .fontWeight(.bold)
+                    .font(.system(size: 22))
+                LazyVGrid(columns:columns, spacing: 4) {
+                    if specificBillVM.senateVoteRollCall != [] {
+                        ForEach(specificBillVM.senateVoteRollCall) {position in
+                            
+                            Text(position.name!)
+                            Text(position.party!)
+                            Text(position.vote_position!)
+                            
+                        }
+                    }
+                }
+            }
+        }.padding()
     }
 }
