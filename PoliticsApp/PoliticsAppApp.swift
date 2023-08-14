@@ -15,7 +15,7 @@ struct PoliticsAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            FeedView().environmentObject(recentBillVM).environmentObject(specificBillVM)
+            MainTabView().environmentObject(recentBillVM).environmentObject(specificBillVM)
         }
     }
 }

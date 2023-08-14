@@ -15,13 +15,15 @@ struct FeedView: View {
     @EnvironmentObject var specificBillVM: SpecificBillViewModel
     
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(recentBillVM.bills) { bill in
-                    BillRowView(bill: bill).environmentObject(specificBillVM).onAppear {
-                        recentBillVM.loadMoreContentIfNeeded(currentItem: bill)
+        VStack {
+            ScrollView {
+                LazyVStack {
+                    ForEach(recentBillVM.bills) { bill in
+                        BillRowView(bill: bill).environmentObject(specificBillVM).onAppear {
+                            recentBillVM.loadMoreContentIfNeeded(currentItem: bill)
+                        }
+                        Divider()
                     }
-                    Divider()
                 }
             }
         }
@@ -31,6 +33,11 @@ struct FeedView: View {
 struct FeedView_Previews: PreviewProvider {
     static var previews: some View {
         let recentBills = ProPublicaAPI().fetchAPIBillsSearchData(query: "", pageNum: 0)!
-        FeedView().environmentObject(RecentBillViewModel(recentResults: recentBills.results.first!))
+        let recentBillsVM = RecentBillViewModel(recentResults: recentBills.results.first!)
+        
+        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(billSlug: recentBills.results.first!.bills.first!.bill_slug)!
+        let specificBillVM = SpecificBillViewModel(specificResults: specificBill)
+        
+        FeedView().environmentObject(recentBillsVM).environmentObject(specificBillVM)
     }
 }

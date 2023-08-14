@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct RecentBill: Codable, Identifiable {
+struct RecentBill: Codable, Identifiable{
     var id: String {bill_id}
     let bill_id: String
     let bill_slug: String
