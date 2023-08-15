@@ -22,9 +22,12 @@ struct SearchBillView: View {
                 }
             }
         }
+        
         .onAppear {
-            if searchBillVM.bills!.count == 0 {
-                searchBillVM.toggleSearch()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                if searchBillVM.bills!.count == 0 {
+                    searchBillVM.toggleSearch()
+                }
             }
         }
         .sheet(isPresented: $searchBillVM.showSearchMenu) {

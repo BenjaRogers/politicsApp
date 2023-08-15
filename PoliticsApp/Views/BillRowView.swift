@@ -12,6 +12,7 @@ struct BillRowView: View {
     @State var bill: RecentBill
     @State var showSpecificBill: Bool = false
     
+    var image: UIImage?
     var body: some View {
         VStack {
                 BillRowSummary
@@ -39,19 +40,18 @@ extension BillRowView {
         } label: {
             // Placeholder for actual image of bill sponsor
             HStack(alignment: .top, spacing: 12) {
-                let image = ImageHandler().RequestImage(sponsor_id: bill.sponsor_id)
-                if image != nil {
-                    Image(uiImage: image!)
-                        .resizable()
+                AsyncImage(url: URL(string: ("https://theunitedstates.io/images/congress/225x275/\(bill.sponsor_id).jpg"))){image in
+                    image.resizable()
                         .scaledToFill()
-                        .clipShape(Circle())
                         .frame(width: 48, height: 48)
-                } else {
-                    Circle()
-                        .frame(width: 56, height: 56)
-                        .foregroundColor(Color(.systemBlue))
+                        .clipShape(Circle())
+                } placeholder: {
+                    Image(systemName: "person.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width:48, height: 48)
+                        .clipShape(Circle())
                 }
-                
                 // Header with sponsor name and bill slug
                 VStack(alignment: .leading, spacing: 4) {
                     HStack() {
