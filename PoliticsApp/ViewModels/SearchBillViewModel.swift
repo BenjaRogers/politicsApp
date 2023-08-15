@@ -42,9 +42,11 @@ class SearchBillViewModel: ObservableObject {
     }
     
     func updateSearchResults(query: String) {
-        let searchResults = ProPublicaAPI().fetchAPIBillsSearchData(query: query, pageNum: 0)!.results.first!
-        self.searchResults = searchResults
-        self.bills = searchResults.bills
+        let searchResults = ProPublicaAPI().fetchAPIBillsSearchData(query: query, pageNum: 0)! //.results.first!
+        if searchResults.results.first!.bills.count > 0 {
+            self.searchResults = searchResults.results.first!
+            self.bills = searchResults.results.first!.bills
+        }
     }
     
     // Load more content from endpoint if scrollview is nearing bottom of loaded results
