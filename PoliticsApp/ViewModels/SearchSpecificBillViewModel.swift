@@ -26,6 +26,8 @@ class SearchSpecificBillViewModel: ObservableObject {
     @Published var bill: SpecificBill?
     
     
+    
+    
     init(specificResults: SpecificBills) {
         self.specificResults = specificResults
         self.bills = specificResults.results
@@ -42,8 +44,8 @@ class SearchSpecificBillViewModel: ObservableObject {
         self.bill = nil
     }
     
-    func updateSearchResults(billSlug: String) {
-        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(billSlug: billSlug)!
+    func updateSearchResults(congressSession: Int, billSlug: String) {
+        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(congressSession: congressSession, billSlug: billSlug)!
         self.specificResults = specificBill
         self.bills = self.specificResults!.results
         self.bill = bills!.first!
@@ -51,6 +53,25 @@ class SearchSpecificBillViewModel: ObservableObject {
         setHouseVoteCount()
         setSenateRollCall()
         setHouseRollCall()
+    }
+    
+    func resetViewModel() {
+        self.specificResults = nil
+        self.bills = nil
+        
+        self.senateVoteCount = []
+        self.houseVoteCount = []
+        self.senateVoteResult = ""
+        self.houseVoteResult = ""
+        self.senateVoteDate = ""
+        self.houseVoteDate = ""
+        
+        
+        self.houseVoteRollCall = []
+        self.senateVoteRollCall = []
+        
+        self.showSpecificBillView = false
+        self.bill = nil
     }
     
     func nextSpecificBill(specificResults: SpecificBills) {

@@ -82,9 +82,9 @@ class ProPublicaAPI {
     // Decode to Models in Models/Specific SpecificBills -> SpecificBill -> SpecificBillVotes
     //                                                             -> SpecificBillAction
     // Used in Views SpecificBillView
-    func fetchAPIBillsSpecific(billSlug: String) -> SpecificBills? {
+    func fetchAPIBillsSpecific(congressSession: Int, billSlug: String) -> SpecificBills? {
         let apiKey = Bundle.main.object(forInfoDictionaryKey: "apiKey") as! String
-        let apiUrl = "https://api.propublica.org/congress/v1/118/bills/\(billSlug).json"
+        let apiUrl = "https://api.propublica.org/congress/v1/\(congressSession)/bills/\(billSlug).json"
         var specificResults: SpecificBills?
         let semaphore = DispatchSemaphore(value: 0)
         

@@ -34,7 +34,7 @@ struct VoteRollCallView: View {
 
 struct VoteRollCallView_Previews: PreviewProvider {
     static var previews: some View {
-        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(billSlug: "sjres9")!
+        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(congressSession: 118, billSlug: "sjres9")!
         VoteRollCallView().environmentObject(SpecificBillViewModel(specificResults: specificBill))
     }
 }

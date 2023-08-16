@@ -40,6 +40,7 @@
 		B5A9994E2A865D9F00D9A475 /* VoteRollCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9994D2A865D9F00D9A475 /* VoteRollCallView.swift */; };
 		B5A999502A86C5D700D9A475 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9994F2A86C5D400D9A475 /* MainTabView.swift */; };
 		B5A999522A86CF3000D9A475 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A999512A86CF2F00D9A475 /* SearchView.swift */; };
+		B5CC703C2A8BB562001AFB1E /* SearchSpecificBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC703B2A8BB562001AFB1E /* SearchSpecificBillView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		B5A9994D2A865D9F00D9A475 /* VoteRollCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRollCallView.swift; sourceTree = "<group>"; };
 		B5A9994F2A86C5D400D9A475 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B5A999512A86CF2F00D9A475 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		B5CC703B2A8BB562001AFB1E /* SearchSpecificBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSpecificBillView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				B5A9994F2A86C5D400D9A475 /* MainTabView.swift */,
 				B5A999512A86CF2F00D9A475 /* SearchView.swift */,
 				B5750B7D2A88FCE2007E70E3 /* SearchBillView.swift */,
+				B5CC703B2A8BB562001AFB1E /* SearchSpecificBillView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				B5679EF32A7EC99F00085AC0 /* BillRowView.swift in Sources */,
 				B5750B7C2A88FBC1007E70E3 /* SearchBillViewModel.swift in Sources */,
 				B50F24B32A8097F70084DAF5 /* ImageHandler.swift in Sources */,
+				B5CC703C2A8BB562001AFB1E /* SearchSpecificBillView.swift in Sources */,
 				B5149F5A2A811E530082D8C1 /* SpecificBills.swift in Sources */,
 				B50DF2962A7A7BC200D9CC65 /* ProPublicaAPI.swift in Sources */,
 				B5A9994E2A865D9F00D9A475 /* VoteRollCallView.swift in Sources */,

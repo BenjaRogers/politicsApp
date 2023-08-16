@@ -35,7 +35,7 @@ struct FeedView_Previews: PreviewProvider {
         let recentBills = ProPublicaAPI().fetchAPIBillsSearchData(query: "", pageNum: 0)!
         let recentBillsVM = RecentBillViewModel(recentResults: recentBills.results.first!)
         
-        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(billSlug: recentBills.results.first!.bills.first!.bill_slug)!
+        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(congressSession: recentBills.results.first!.bills.first!.congressSession!, billSlug: recentBills.results.first!.bills.first!.bill_slug)!
         let specificBillVM = SpecificBillViewModel(specificResults: specificBill)
         
         FeedView().environmentObject(recentBillsVM).environmentObject(specificBillVM)

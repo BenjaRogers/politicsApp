@@ -16,12 +16,14 @@ import Foundation
 
 import Foundation
 
+
 // endless scroll instructions: https://www.donnywals.com/implementing-an-infinite-scrolling-list-with-swiftui-and-combine/
 class SearchBillViewModel: ObservableObject {
     @Published var searchResults: RecentResults?
     @Published var bills: [RecentBill]?
     @Published var isLoadingPage = false
     @Published var showSearchMenu = false
+    @Published var searchT: String = "keyword"
     
     
     private var canLoadMorePages = true
@@ -41,13 +43,15 @@ class SearchBillViewModel: ObservableObject {
         showSearchMenu = !showSearchMenu
     }
     
-    func updateSearchResults(query: String) {
+    func updateKeywordSearchResults(query: String) {
         let searchResults = ProPublicaAPI().fetchAPIBillsSearchData(query: query, pageNum: 0)! //.results.first!
         if searchResults.results.first!.bills.count > 0 {
             self.searchResults = searchResults.results.first!
             self.bills = searchResults.results.first!.bills
         }
     }
+    
+    
     
     // Load more content from endpoint if scrollview is nearing bottom of loaded results
     func loadMoreContentIfNeeded(currentItem bill: RecentBill?) {

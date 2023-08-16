@@ -26,7 +26,7 @@ struct BillRowView_Previews: PreviewProvider {
         let billJSON = ProPublicaAPI().fetchAPIBillsSearchData(query: "", pageNum: 0)
         let bill = billJSON!.results.first!.bills.first
         let billSlug = bill!.bill_slug
-        let billVM = SpecificBillViewModel(specificResults: ProPublicaAPI().fetchAPIBillsSpecific(billSlug: billSlug)!)
+        let billVM = SpecificBillViewModel(specificResults: ProPublicaAPI().fetchAPIBillsSpecific(congressSession: 118, billSlug: billSlug)!)
         BillRowView(bill:bill!).environmentObject(billVM)
     }
 }
@@ -35,7 +35,7 @@ extension BillRowView {
     private var BillRowSummary: some View {
         // Whole Billrow is clickable above buttons. Clicking a bill opens a more detailed bill TabView SpecificBillView.
         Button {
-            specificBillVM.nextSpecificBill(specificResults: ProPublicaAPI().fetchAPIBillsSpecific(billSlug: bill.bill_slug)!)
+            specificBillVM.nextSpecificBill(specificResults: ProPublicaAPI().fetchAPIBillsSpecific(congressSession: bill.congressSession!, billSlug: bill.bill_slug)!)
             specificBillVM.showSpecificBillView = true
         } label: {
             // Placeholder for actual image of bill sponsor

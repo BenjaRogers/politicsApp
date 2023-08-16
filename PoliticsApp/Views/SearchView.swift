@@ -39,11 +39,18 @@ struct SearchView: View {
                         TextField("Ex. Health", text: $searchTerms)
                     }
                     Button {
-                        searchBillVM.updateSearchResults(query:searchTerms)
-                        if searchBillVM.bills!.count > 0 {
-                            searchSpecificBillVM.updateSearchResults(billSlug:searchBillVM.bills!.first!.bill_slug)
+                        if searchType == "keyword" {
+                            searchBillVM.updateKeywordSearchResults(query:searchTerms)
+                            if searchBillVM.bills!.count > 0 {
+                                searchSpecificBillVM.updateSearchResults(congressSession: searchBillVM.bills!.first!.congressSession!, billSlug:searchBillVM.bills!.first!.bill_slug)
+                            }
+                            searchBillVM.searchT = "keyword"
+                        } else if searchType == "billID" {
+                            searchSpecificBillVM.updateSearchResults(congressSession: congressSession, billSlug: searchTerms)
+                            searchBillVM.searchT = "id"
                         }
                         searchBillVM.toggleSearch()
+                        
                     } label: {
                         Text("Search")
                     }

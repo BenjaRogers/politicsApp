@@ -10,6 +10,11 @@ import UIKit
 
 struct RecentBill: Codable, Identifiable{
     var id: String {bill_id}
+    var congressSession: Int? {
+        let idSplit = bill_id.components(separatedBy: "-")
+        let congressSession = Int(idSplit[1])
+        return congressSession
+    }
     let bill_id: String
     let bill_slug: String
     let bill_type: String
