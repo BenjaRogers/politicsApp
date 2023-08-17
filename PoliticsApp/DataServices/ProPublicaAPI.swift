@@ -127,4 +127,30 @@ class ProPublicaAPI {
         
         return specificRollCallVote
     }
+    
+    func  fetchAPIBillsRecent(congressSession: Int, chamber: String, type: String, pageNum: Int) -> RecentBills? {
+        let offsetString = "offset=\(pageNum * 20)"
+        let apiKey = Bundle.main.object(forInfoDictionaryKey: "apiKey") as! String
+        let apiUrl = "https://api.propublica.org/congress/v1/\(congressSession)/\(chamber)/bills/\(type).json?\(offsetString)"
+        print(apiUrl)
+        let semaphore = DispatchSemaphore(value: 0)
+        var upcomingBills: RecentBills?
+        
+        if apiKey != "" {
+            callAPIWithKey(urlString: apiUrl, apiKey: apiKey) {result in
+                switch result {
+                case .success(let jsonData):
+                    print(jsonData)
+                    let decoder = JSONDecoder()
+                    upcomingBills = try! decoder.decode(RecentBills.self, from:jsonData)
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+                semaphore.signal()
+            }
+        }
+        semaphore.wait()
+        return upcomingBills
+    }
 }

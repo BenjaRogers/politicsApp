@@ -51,8 +51,6 @@ class SearchBillViewModel: ObservableObject {
         }
     }
     
-    
-    
     // Load more content from endpoint if scrollview is nearing bottom of loaded results
     func loadMoreContentIfNeeded(currentItem bill: RecentBill?) {
       guard let bill = bill else {

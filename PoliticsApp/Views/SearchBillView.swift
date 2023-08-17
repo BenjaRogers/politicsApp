@@ -11,32 +11,34 @@ struct SearchBillView: View {
     @EnvironmentObject var searchBillVM: SearchBillViewModel
     @EnvironmentObject var searchSpecificBillVM: SearchSpecificBillViewModel
     var body: some View {
-        if searchBillVM.searchT == "id" {
-            VStack {
+        VStack {
+            if searchBillVM.searchT == "id" {
+                VStack {
+                    backButton
+                    specificBillBody
+                }
+            } else if searchBillVM.searchT == "keyword" {
                 backButton
-                specificBillBody
-            }
-        } else if searchBillVM.searchT == "keyword" {
-            backButton
-            ScrollView {
-                LazyVStack {
-                    ForEach(searchBillVM.bills!) { bill in
-                        BillRowView(bill: bill).onAppear {
-                            searchBillVM.loadMoreContentIfNeeded(currentItem: bill)
+                ScrollView {
+                    LazyVStack {
+                        ForEach(searchBillVM.bills!) { bill in
+                            BillRowView(bill: bill).onAppear {
+                                searchBillVM.loadMoreContentIfNeeded(currentItem: bill)
+                            }
+                            Divider()
                         }
-                        Divider()
                     }
                 }
-            }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    if searchBillVM.bills!.count == 0 {
-                        searchBillVM.toggleSearch()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        if searchBillVM.bills!.count == 0 {
+                            searchBillVM.toggleSearch()
+                        }
                     }
                 }
-            }
-            .sheet(isPresented: $searchBillVM.showSearchMenu) {
-                SearchView()
+                .sheet(isPresented: $searchBillVM.showSearchMenu) {
+                    SearchView()
+                }
             }
         }
     }

@@ -35,10 +35,10 @@ struct MainTabView: View {
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        let recentBills = ProPublicaAPI().fetchAPIBillsSearchData(query: "", pageNum: 0)!
-        let recentBillsVM = RecentBillViewModel(recentResults: recentBills.results.first!)
+        let recentBills = ProPublicaAPI().fetchAPIBillsRecent(congressSession: 118, chamber: "both", type: "introduced", pageNum: 0)
+        let recentBillsVM = RecentBillViewModel(recentResults: recentBills!.results.first!, congressSession: 118, chamber: "both", type: "introduced")
         
-        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(congressSession: recentBills.results.first!.bills.first!.congressSession!, billSlug: recentBills.results.first!.bills.first!.bill_slug)!
+        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(congressSession: recentBills!.results.first!.bills.first!.congressSession!, billSlug: recentBills!.results.first!.bills.first!.bill_slug)!
         let specificBillVM = SpecificBillViewModel(specificResults: specificBill)
         
         MainTabView().environmentObject(recentBillsVM).environmentObject(specificBillVM)

@@ -14,14 +14,18 @@ struct FeedView: View {
     @EnvironmentObject var recentBillVM: RecentBillViewModel
     @EnvironmentObject var specificBillVM: SpecificBillViewModel
     
+    @State var selectedTabIndex: Int = 1
     var body: some View {
         VStack {
+            tabHeader
             ScrollView {
                 LazyVStack {
                     ForEach(recentBillVM.bills) { bill in
-                        BillRowView(bill: bill).environmentObject(specificBillVM).onAppear {
-                            recentBillVM.loadMoreContentIfNeeded(currentItem: bill)
-                        }
+                        BillRowView(bill: bill).environmentObject(specificBillVM)
+                            .onAppear {
+                                recentBillVM.loadMoreContentIfNeeded(currentItem: bill)
+                            }
+                        
                         Divider()
                     }
                 }
@@ -32,12 +36,45 @@ struct FeedView: View {
 
 struct FeedView_Previews: PreviewProvider {
     static var previews: some View {
-        let recentBills = ProPublicaAPI().fetchAPIBillsSearchData(query: "", pageNum: 0)!
-        let recentBillsVM = RecentBillViewModel(recentResults: recentBills.results.first!)
+        let recentBills = ProPublicaAPI().fetchAPIBillsRecent(congressSession: 118, chamber: "both", type: "updated", pageNum: 0)!
+        let recentBillsVM = RecentBillViewModel(recentResults: recentBills.results.first!, congressSession:118, chamber: "both", type:"introduced")
         
         let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(congressSession: recentBills.results.first!.bills.first!.congressSession!, billSlug: recentBills.results.first!.bills.first!.bill_slug)!
         let specificBillVM = SpecificBillViewModel(specificResults: specificBill)
         
         FeedView().environmentObject(recentBillsVM).environmentObject(specificBillVM)
+    }
+}
+
+extension FeedView {
+    var tabHeader: some View {
+        
+        Picker("", selection: self.$selectedTabIndex) {
+            Text("Introduced").tag(0)
+            Text("Updated").tag(1)
+            Text("Active").tag(2)
+            Text("Passed").tag(3)
+            Text("Enacted").tag(4)
+            Text("Vetoed").tag(5)
+        }.pickerStyle(.segmented)
+            .onChange(of: selectedTabIndex) { newValue in
+                switch(selectedTabIndex) {
+                case 0:
+                    recentBillVM.updateViewModelSearchParams(congressSession: 118, chamber: "both", type: "introduced")
+                case 1:
+                    recentBillVM.updateViewModelSearchParams(congressSession: 118, chamber: "both", type: "updated")
+                case 2:
+                    recentBillVM.updateViewModelSearchParams(congressSession: 118, chamber: "both", type: "active")
+                case 3:
+                    recentBillVM.updateViewModelSearchParams(congressSession: 118, chamber: "both", type: "passed")
+                case 4:
+                    recentBillVM.updateViewModelSearchParams(congressSession: 118, chamber: "both", type: "enacted")
+                case 5:
+                    recentBillVM.updateViewModelSearchParams(congressSession: 118, chamber: "both", type: "vetoed")
+                default:
+                    recentBillVM.updateViewModelSearchParams(congressSession: 118, chamber: "both", type: "introduced")
+                }
+                recentBillVM.updateViewModelBills()
+            }
     }
 }
