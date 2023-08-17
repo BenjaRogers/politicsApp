@@ -37,7 +37,6 @@
 		B5A999482A85C3C200D9A475 /* SpecificRollCallVotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A999472A85C3C200D9A475 /* SpecificRollCallVotes.swift */; };
 		B5A9994A2A85C40D00D9A475 /* SpecificRollCallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A999492A85C40D00D9A475 /* SpecificRollCallResults.swift */; };
 		B5A9994C2A85C43900D9A475 /* SpecificRollCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9994B2A85C43900D9A475 /* SpecificRollCall.swift */; };
-		B5A9994E2A865D9F00D9A475 /* VoteRollCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9994D2A865D9F00D9A475 /* VoteRollCallView.swift */; };
 		B5A999502A86C5D700D9A475 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9994F2A86C5D400D9A475 /* MainTabView.swift */; };
 		B5A999522A86CF3000D9A475 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A999512A86CF2F00D9A475 /* SearchView.swift */; };
 		B5CC703C2A8BB562001AFB1E /* SearchSpecificBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC703B2A8BB562001AFB1E /* SearchSpecificBillView.swift */; };
@@ -77,7 +76,6 @@
 		B5A999472A85C3C200D9A475 /* SpecificRollCallVotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificRollCallVotes.swift; sourceTree = "<group>"; };
 		B5A999492A85C40D00D9A475 /* SpecificRollCallResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificRollCallResults.swift; sourceTree = "<group>"; };
 		B5A9994B2A85C43900D9A475 /* SpecificRollCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificRollCall.swift; sourceTree = "<group>"; };
-		B5A9994D2A865D9F00D9A475 /* VoteRollCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRollCallView.swift; sourceTree = "<group>"; };
 		B5A9994F2A86C5D400D9A475 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B5A999512A86CF2F00D9A475 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		B5CC703B2A8BB562001AFB1E /* SearchSpecificBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSpecificBillView.swift; sourceTree = "<group>"; };
@@ -149,14 +147,8 @@
 		B50DF2932A7A7B7F00D9CC65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B5679EF22A7EC99F00085AC0 /* BillRowView.swift */,
-				B5679EF62A7ED40700085AC0 /* FeedView.swift */,
-				B5149F622A81346B0082D8C1 /* SpecificBillView.swift */,
-				B5A9994D2A865D9F00D9A475 /* VoteRollCallView.swift */,
+				B5C1AB6F2A8E3ED500ABC7DD /* BillViews */,
 				B5A9994F2A86C5D400D9A475 /* MainTabView.swift */,
-				B5A999512A86CF2F00D9A475 /* SearchView.swift */,
-				B5750B7D2A88FCE2007E70E3 /* SearchBillView.swift */,
-				B5CC703B2A8BB562001AFB1E /* SearchSpecificBillView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +207,19 @@
 				B5A9994B2A85C43900D9A475 /* SpecificRollCall.swift */,
 			);
 			path = SpecificVote;
+			sourceTree = "<group>";
+		};
+		B5C1AB6F2A8E3ED500ABC7DD /* BillViews */ = {
+			isa = PBXGroup;
+			children = (
+				B5A999512A86CF2F00D9A475 /* SearchView.swift */,
+				B5679EF62A7ED40700085AC0 /* FeedView.swift */,
+				B5679EF22A7EC99F00085AC0 /* BillRowView.swift */,
+				B5149F622A81346B0082D8C1 /* SpecificBillView.swift */,
+				B5750B7D2A88FCE2007E70E3 /* SearchBillView.swift */,
+				B5CC703B2A8BB562001AFB1E /* SearchSpecificBillView.swift */,
+			);
+			path = BillViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +307,6 @@
 				B5CC703C2A8BB562001AFB1E /* SearchSpecificBillView.swift in Sources */,
 				B5149F5A2A811E530082D8C1 /* SpecificBills.swift in Sources */,
 				B50DF2962A7A7BC200D9CC65 /* ProPublicaAPI.swift in Sources */,
-				B5A9994E2A865D9F00D9A475 /* VoteRollCallView.swift in Sources */,
 				B5A999462A85C37600D9A475 /* SpecificRollCallVote.swift in Sources */,
 				B5A9994A2A85C40D00D9A475 /* SpecificRollCallResults.swift in Sources */,
 				B5679EEB2A7EC81400085AC0 /* RecentBills.swift in Sources */,
