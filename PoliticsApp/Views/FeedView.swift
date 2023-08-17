@@ -15,21 +15,28 @@ struct FeedView: View {
     @EnvironmentObject var specificBillVM: SpecificBillViewModel
     
     @State var selectedTabIndex: Int = 0
+    
+    @Namespace var first
+    
     var body: some View {
-        VStack {
-            tabHeader
-            ScrollView {
-                LazyVStack {
-                    ForEach(recentBillVM.bills) { bill in
-                        BillRowView(bill: bill).environmentObject(specificBillVM)
-                            .onAppear {
-                                recentBillVM.loadMoreContentIfNeeded(currentItem: bill)
-                                print(bill.bill_id)
-                            }
-                        
-                        Divider()
+        ScrollViewReader { reader in
+            VStack {
+                tabHeader
+                ScrollView {
+                    Divider().id(first)
+                    LazyVStack {
+                        ForEach(recentBillVM.bills) { bill in
+                            BillRowView(bill: bill).environmentObject(specificBillVM)
+                                .onAppear {
+                                    recentBillVM.loadMoreContentIfNeeded(currentItem: bill)
+                                }
+                            
+                            Divider()
+                        }
                     }
                 }
+            }.onChange(of: selectedTabIndex) { index in
+                reader.scrollTo(first)
             }
         }
     }
