@@ -29,19 +29,18 @@ class RecentBillViewModel: ObservableObject {
     }
     
     func updateViewModelBills() {
-        print("Updating VM")
-        let recentBills = ProPublicaAPI().fetchAPIBillsRecent(congressSession: self.congressSession, chamber: self.chamber, type: self.type, pageNum: self.currentPage)!
+        let recentBills = ProPublicaAPI().fetchAPIBillsRecent(congressSession: self.congressSession, chamber: self.chamber, type: self.type, pageNum: 0)!
         self.recentResults = recentBills.results.first!
         self.bills = self.recentResults.bills
     }
     
     func updateViewModelSearchParams(congressSession:Int, chamber: String, type: String) {
-        print("Updating VM params")
         self.congressSession = congressSession
         self.chamber = chamber
         self.type = type
-        self.currentPage = 0
+        self.currentPage = 1
         self.canLoadMorePages = true
+        self.isLoadingPage = false
     }
     
     // Load more content from endpoint if scrollview is nearing bottom of loaded results
@@ -59,7 +58,6 @@ class RecentBillViewModel: ObservableObject {
     
     // Call API for next set of data. Offset must increment by multiple of 20**
     private func loadMoreContent() {
-        print("loading more content")
         guard !isLoadingPage && canLoadMorePages else {
           return
         }
@@ -72,6 +70,5 @@ class RecentBillViewModel: ObservableObject {
         }
         self.isLoadingPage = false
         self.currentPage += 1
-        print(self.currentPage)
       }
 }

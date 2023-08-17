@@ -14,7 +14,7 @@ struct FeedView: View {
     @EnvironmentObject var recentBillVM: RecentBillViewModel
     @EnvironmentObject var specificBillVM: SpecificBillViewModel
     
-    @State var selectedTabIndex: Int = 1
+    @State var selectedTabIndex: Int = 0
     var body: some View {
         VStack {
             tabHeader
@@ -24,6 +24,7 @@ struct FeedView: View {
                         BillRowView(bill: bill).environmentObject(specificBillVM)
                             .onAppear {
                                 recentBillVM.loadMoreContentIfNeeded(currentItem: bill)
+                                print(bill.bill_id)
                             }
                         
                         Divider()
@@ -36,7 +37,7 @@ struct FeedView: View {
 
 struct FeedView_Previews: PreviewProvider {
     static var previews: some View {
-        let recentBills = ProPublicaAPI().fetchAPIBillsRecent(congressSession: 118, chamber: "both", type: "updated", pageNum: 0)!
+        let recentBills = ProPublicaAPI().fetchAPIBillsRecent(congressSession: 118, chamber: "both", type: "introduced", pageNum: 0)!
         let recentBillsVM = RecentBillViewModel(recentResults: recentBills.results.first!, congressSession:118, chamber: "both", type:"introduced")
         
         let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(congressSession: recentBills.results.first!.bills.first!.congressSession!, billSlug: recentBills.results.first!.bills.first!.bill_slug)!
