@@ -16,7 +16,7 @@ struct RecentBill: Codable, Identifiable{
         return congressSession
     }
     let bill_id: String
-    let bill_slug: String
+    var bill_slug: String
     let bill_type: String
     let bill_uri: String
     let committee_codes: [String]

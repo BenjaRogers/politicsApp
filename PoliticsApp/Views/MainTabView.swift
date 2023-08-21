@@ -10,10 +10,15 @@ import SwiftUI
 struct MainTabView: View {
     @EnvironmentObject var recentBillVM: RecentBillViewModel
     @EnvironmentObject var specificBillVM: SpecificBillViewModel
+    @EnvironmentObject var searchBillVM: SearchBillViewModel
+    
+    @EnvironmentObject var searchMembersVM: SearchMembersViewModel
+    @EnvironmentObject var specificMemberVM: SpecificMemberViewModel
     
     @State private var selectedTabIndex = 0
     
     var body: some View {
+        
         TabView(selection: $selectedTabIndex) {
             FeedView()
                 .onTapGesture {
@@ -22,25 +27,35 @@ struct MainTabView: View {
                 .tabItem {
                     Image(systemName: "house")
                 }.tag(0)
-            SearchBillView().environmentObject(SearchBillViewModel()).environmentObject(SearchSpecificBillViewModel())
+            SearchBillView()
                 .onTapGesture {
                     self.selectedTabIndex = 1
                 }
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }.tag(1)
+            NavigationView {
+                SearchMemberView()
+            }
+            .onTapGesture {
+                self.selectedTabIndex = 2
+            }
+            .tabItem {
+                Image(systemName: "person.crop.rectangle.fill")
+            }.tag(2)
         }
     }
 }
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        let recentBills = ProPublicaAPI().fetchAPIBillsRecent(congressSession: 118, chamber: "both", type: "introduced", pageNum: 0)
-        let recentBillsVM = RecentBillViewModel(recentResults: recentBills!.results.first!, congressSession: 118, chamber: "both", type: "introduced")
+        let recentBillsVM = RecentBillViewModel(recentResults: ProPublicaAPI().fetchAPIBillsRecent(congressSession: 118, chamber: "both", type: "introduced", pageNum: 0)!.results.first!, congressSession: 118, chamber: "both", type: "introduced")
         
-        let specificBill = ProPublicaAPI().fetchAPIBillsSpecific(congressSession: recentBills!.results.first!.bills.first!.congressSession!, billSlug: recentBills!.results.first!.bills.first!.bill_slug)!
-        let specificBillVM = SpecificBillViewModel(specificResults: specificBill)
+        let specificBillVM = SpecificBillViewModel(specificResults: ProPublicaAPI().fetchAPIBillsSpecific(congressSession: ProPublicaAPI().fetchAPIBillsRecent(congressSession: 118, chamber: "both", type: "introduced", pageNum: 0)!.results.first!.bills.first!.congressSession!, billSlug: ProPublicaAPI().fetchAPIBillsRecent(congressSession: 118, chamber: "both", type: "introduced", pageNum: 0)!.results.first!.bills.first!.bill_slug)!)
         
-        MainTabView().environmentObject(recentBillsVM).environmentObject(specificBillVM)
+        let searchMembersVM = SearchMembersViewModel(congressSession: 118, chamber: "Senate")
+        
+        let specificMemberVM = SpecificMemberViewModel(memberID: "T000476")
+        MainTabView().environmentObject(recentBillsVM).environmentObject(specificBillVM).environmentObject(searchMembersVM).environmentObject(specificMemberVM)
     }
 }

@@ -45,6 +45,18 @@ extension SpecificBillView {
                 backButton
                 HStack {
                     //Sponsor
+                    AsyncImage(url: URL(string: ("https://theunitedstates.io/images/congress/225x275/\(bill.sponsor_id).jpg"))){image in
+                        image.resizable()
+                            .scaledToFill()
+                            .frame(width: 48, height: 48)
+                            .clipShape(Circle())
+                    } placeholder: {
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:48, height: 48)
+                            .clipShape(Circle())
+                    }
                     Text("\(specificBillVM.bill!.sponsor_title) \(specificBillVM.bill!.sponsor) (\(specificBillVM.bill!.sponsor_party)-\(specificBillVM.bill!.sponsor_state)) (\(specificBillVM.bill!.getCosponsorString()))").foregroundColor(.gray)
                 }
                 
@@ -123,13 +135,14 @@ extension SpecificBillView {
         Button {
             specificBillVM.showSpecificBillView = false
         } label: {
-            Image(systemName: "arrowshape.turn.up.backward")
+            Image(systemName: "arrow.backward")
+            Text("Back")
         }
         .font(.headline)
         .padding(16)
         .background(.thickMaterial)
         .cornerRadius(10)
-        .shadow(radius: 4)
+//        .shadow(radius: 4)
     }
     
     // Stacked horizontal bar chart for senate votes

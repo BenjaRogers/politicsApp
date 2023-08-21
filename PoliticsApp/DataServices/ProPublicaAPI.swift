@@ -128,7 +128,7 @@ class ProPublicaAPI {
         return specificRollCallVote
     }
     
-    func  fetchAPIBillsRecent(congressSession: Int, chamber: String, type: String, pageNum: Int) -> RecentBills? {
+    func fetchAPIBillsRecent(congressSession: Int, chamber: String, type: String, pageNum: Int) -> RecentBills? {
         let offsetString = "offset=\(pageNum * 20)"
         let apiKey = Bundle.main.object(forInfoDictionaryKey: "apiKey") as! String
         let apiUrl = "https://api.propublica.org/congress/v1/\(congressSession)/\(chamber)/bills/\(type).json?\(offsetString)"
@@ -150,5 +150,77 @@ class ProPublicaAPI {
         }
         semaphore.wait()
         return upcomingBills
+    }
+    
+    func fetchAPIMembersAll(congressSession: Int, chamber: String) -> MembersAll? {
+        let apiKey = Bundle.main.object(forInfoDictionaryKey: "apiKey") as! String
+        let apiUrl = "https://api.propublica.org/congress/v1/\(congressSession)/\(chamber)/members.json"
+        let semaphore = DispatchSemaphore(value: 0)
+        var upcomingBills: MembersAll?
+        
+        if apiKey != "" {
+            callAPIWithKey(urlString: apiUrl, apiKey: apiKey) {result in
+                switch result {
+                case .success(let jsonData):
+                    print(jsonData)
+                    let decoder = JSONDecoder()
+                    upcomingBills = try! decoder.decode(MembersAll.self, from:jsonData)
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+                semaphore.signal()
+            }
+        }
+        semaphore.wait()
+        return upcomingBills
+    }
+    
+    func fetchAPIMemberSpecific(memberID: String) -> SpecificMemberResponse? {
+        let apiKey = Bundle.main.object(forInfoDictionaryKey: "apiKey") as! String
+        let apiUrl = "https://api.propublica.org/congress/v1/members/\(memberID).json"
+        let semaphore = DispatchSemaphore(value: 0)
+        var specificMemberResponse: SpecificMemberResponse?
+        
+        if apiKey != "" {
+            callAPIWithKey(urlString: apiUrl, apiKey: apiKey) {result in
+                switch result {
+                case .success(let jsonData):
+                    print(jsonData)
+                    let decoder = JSONDecoder()
+                    specificMemberResponse = try! decoder.decode(SpecificMemberResponse.self, from:jsonData)
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+                semaphore.signal()
+            }
+        }
+        semaphore.wait()
+        return specificMemberResponse
+    }
+    
+    func fetchAPIMemberRecentBills(memberID: String, offset: Int) -> SponsoredBillsResponse? {
+        let apiKey = Bundle.main.object(forInfoDictionaryKey: "apiKey") as! String
+        let apiUrl = "https://api.propublica.org/congress/v1/members/\(memberID)/bills/updated.json?offset=\(offset)"
+        let semaphore = DispatchSemaphore(value: 0)
+        var memberRecentResponse: SponsoredBillsResponse?
+        
+        if apiKey != "" {
+            callAPIWithKey(urlString: apiUrl, apiKey: apiKey) {result in
+                switch result {
+                case .success(let jsonData):
+                    print(jsonData)
+                    let decoder = JSONDecoder()
+                    memberRecentResponse = try! decoder.decode(SponsoredBillsResponse.self, from:jsonData)
+                    
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+                semaphore.signal()
+            }
+        }
+        semaphore.wait()
+        return memberRecentResponse
     }
 }
